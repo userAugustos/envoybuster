@@ -6,7 +6,7 @@ import { FaLanguage } from "react-icons/fa";
 import { GrFormNextLink } from 'react-icons/gr';
 
 import poster from "../../assets/poster.jpg";
-import "../../styles/_card.scss";
+// import "../../styles/_card.scss";
 import { useHistory } from "react-router";
 
 export const Card = ({ movie, deleteMovie }: any) => {
@@ -28,7 +28,7 @@ export const Card = ({ movie, deleteMovie }: any) => {
         )}
       </header>
       <section className='poster'>
-        <img src={poster} alt='' />
+        <img src={movie.image ? movie.image : poster } alt='' />
         <section className="card-absolute center-flex">
           { movie.genres_id?.map((genre: any) => ( <button className="button bt-white link-button"> {genre} </button> )) }
         </section>

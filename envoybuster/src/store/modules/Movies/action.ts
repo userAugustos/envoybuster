@@ -7,9 +7,24 @@ export const setMovies = (movies: Movie[]) => {
   };
 };
 
-export const reqMovies = () => {
+export const setMovie = (movie: Movie) => {
+  return{
+    type:actions.SET_MOVIE,
+    movie
+  };
+};
+
+export const setSuccess = (success: boolean) => {
+  return{
+    type: actions.SET_SUCCESS,
+    success
+  }
+}
+
+export const reqMovies = (url: string) => {
   return {
     type: actions.REQ_MOVIES,
+    url
   };
 };
 

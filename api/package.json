@@ -1,11 +1,11 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon ./src/index.ts",
-    "start": "node ./src/index.ts"
+    "start": "json-server --watch db.json -p 5000 & ts-node ./src/index.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",

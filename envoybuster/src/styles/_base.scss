@@ -1,14 +1,12 @@
 @import "./normalize.scss";
-
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) {
-  // display: none;
-}
+@import "./variables";
 
 body{
   // font-family: 'Noto Sans Mono', monospace;
   font-family: 'Mukta', sans-serif;
   min-height: 100vh;
-  background: #d8dcfd;
+  background: $main-white;
+  color: $main-black;
 }
 
 a, span{
@@ -19,10 +17,10 @@ svg.gold-svg{
   filter: invert(80%) sepia(76%) saturate(489%) hue-rotate(3deg) brightness(90%) contrast(103%);
 }
 svg.black-svg{
-  filter: invert(80%) sepia(76%) saturate(489%) hue-rotate(3deg) brightness(90%) contrast(103%);
+  filter: invert(8%) sepia(13%) saturate(421%) hue-rotate(187deg) brightness(98%) contrast(89%);
 }
 svg.red-svg{
-  filter: invert(80%) sepia(76%) saturate(489%) hue-rotate(3deg) brightness(90%) contrast(103%);
+  filter: invert(23%) sepia(89%) saturate(2377%) hue-rotate(348deg) brightness(110%) contrast(90%);
 }
 
 li,a{

@@ -1,10 +1,19 @@
 import express = require("express");
 import fs = require("fs");
 
-import { DBdata, Movies, patchProps } from "./types";
+import { DBdata, Movies, patchBody } from "./types";
 
 const getDB = () => {
   const db = fs.readFileSync("./db.json", "utf-8");
+
+  const defaultData = {
+    movies: [],
+    // genres: []
+  };
+
+  if (!db) {
+    fs.writeFileSync("./db.json", JSON.stringify(defaultData), "utf-8");
+  }
 
   return JSON.parse(db);
 };
@@ -22,12 +31,10 @@ export const getMovie = async (req: express.Request, res: express.Response) => {
   const { id } = req.params;
   const movies = await getDB().movies;
 
-  const index = await movies.findIndex(
-    (movie: any) => movie.id == id
-  );
+  const index = await movies.findIndex((movie: any) => movie.id == id);
 
   index >= 0
-    ? res.status(200).send({movies: movies[index]})
+    ? res.status(200).send(movies[index])
     : res.status(400).send({ success: false, error: "Não achamos o filme!" });
 };
 
@@ -71,7 +78,7 @@ export const patchMovies = async (
 
     if (index >= 0) {
       for (let data in req.body) {
-        if (data in patchProps) {
+        if (data in patchBody) {
           currentData.movies[index][data] = req.body[data];
         } else {
           res.status(400).send("Esse parametro não existe!");
