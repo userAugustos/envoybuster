@@ -10,7 +10,7 @@ server.use(express.json());
 
 import cors = require("cors");
 
-server.use(cors({ origin: "http:/localhost:3000" }));
+server.use(cors({ origin: " http://localhost:3000" }));
 
 const validate = (schema: any) => async (req: express.Request, res: express.Response, next: express.NextFunction) =>{
   const data = req.body;
