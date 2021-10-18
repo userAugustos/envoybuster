@@ -1,17 +1,76 @@
-import * as React from 'react';
-// import "../../styles/_dashboard.scss";
+import * as React from "react";
 
-const Dashboard = ({ movie }: any) => {
+import { AiFillStar } from "react-icons/ai";
+import { GiDirectorChair } from "react-icons/gi";
+import { FaLanguage } from "react-icons/fa";
+import poster from "../../assets/poster.jpg";
 
+import "../../styles/_dashboard.scss";
+import { DB } from "../../utils/moviesTypes";
+
+const Dashboard = ({ movie }: DB) => {
   React.useEffect(() => {
     // console.log(movie);
-  }, [])
+  }, []);
 
-  return(
-    <div className="Container">
-      <h2>{movie.name}</h2>
+  return (
+    <div className='container dashboard'>
+      <header className='dashboard-header column-flex'>
+        <article className='center-flex pd-1'>
+          <section className='column-flex title'>
+            <h2>{movie.name}</h2>
+            <span>{movie.subtitled ? "Legendado :)" : "Sem Legendas :("}</span>
+          </section>
+          {movie.rating && (
+            <section className='center-flex'>
+              <AiFillStar className='mr-15 gold-svg' />
+              <p>{movie.rating}</p>
+            </section>
+          )}
+        </article>
+        <section className='center-flex pd-1'>
+          <GiDirectorChair className='mr-15 black-svg' />
+          {movie.director ? (
+            <span>{movie.director}</span>
+          ) : (
+            <span>Desconhecido</span>
+          )}
+        </section>
+        <section className='center-flex pd-1'>
+          <FaLanguage className='mr-15 black-svg' />
+          <span>{movie.language}</span>
+        </section>
+        <section className='center-flex pd-1'>
+          <span> Lançamento: {movie.release} </span>
+        </section>
+      </header>
+
+      <main className='center-flex'>
+        <div className='column-flex'>
+          <section className='synopsis'>
+            <p> {movie.synopsis} </p>
+          </section>
+          <section className=' center-flex movie-info'>
+            {movie.IMDB && (
+              <a href={movie.IMDB} className='button bt-red'>
+                IMDB
+              </a>
+            )}
+          </section>
+        </div>
+        <article className='dashboard-poster'>
+          <img src={movie.image ? movie.image : poster} alt='' />
+          <section className='center-flex'>
+            {movie.genres?.map((genre: any) => (
+              <button className='button bt-white link-button' key={genre}>
+                {genre}
+              </button>
+            ))}
+          </section>
+        </article>
+      </main>
     </div>
   );
-}
+};
 
 export default Dashboard;

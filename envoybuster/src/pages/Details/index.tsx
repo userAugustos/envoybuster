@@ -4,6 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import Dashboard from '../../components/Dashboard';
 import { reqMovies } from '../../store/modules/Movies/action';
 
+import "../../styles/_details.scss";
+
 export default function Details() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -18,10 +20,10 @@ export default function Details() {
   }, [])
 
   return(
-    <main className="Container">
+    <main className="container column-flex details">
       { movie ? <Dashboard movie={movie}/> : <p>loading</p> }
 
-      <button onClick={() => history.push("/")}>
+      <button className="button goBack" onClick={() => history.push("/")}>
         Volta pra home
       </button>
     </main>

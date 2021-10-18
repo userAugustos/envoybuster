@@ -1,12 +1,14 @@
-.Container{
-  background: #e9eaff;
+@import "./variables.scss";
+
+.card{
+  background: $light-white;
   border-radius: 4px;
 
   max-width: 400px;
   min-width: 310px;
   position: relative;
 
-  box-shadow: 2px 2px 1rem #86828c8a;
+  box-shadow: 2px 2px 1rem $dark-shadow;
 
   header{
     display: flex;
@@ -30,7 +32,7 @@
     img{
       width: 100%;
       border-radius: 4px;
-      box-shadow: 2px 2px 2rem #f4cee4;
+      box-shadow: 2px 2px 2rem $pink-shadow;
     }
     section.card-absolute{
       width: 100%;

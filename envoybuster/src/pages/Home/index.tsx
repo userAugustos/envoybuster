@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { reqMovies, removeMovie } from "../../store/modules/Movies/action";
-// import "../../styles/_home.scss";
+import "../../styles/_home.scss";
 import logo from '../../assets/logo.png';
 import { Card } from "../../components/Card";
 
@@ -22,7 +22,7 @@ export default function Home() {
   }
 
   return(
-    <div className="container">
+    <div className="container home">
       <header>
         <section className="center-flex">
           {data.success && <p>{data.message}</p> }

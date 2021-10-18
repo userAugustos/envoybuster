@@ -8,17 +8,21 @@ export const actions = {
   SET_SUCCESS: "SET_SUCCESS"
 };
 
+export interface DB {
+  movie: Movie
+}
 export interface Movie {
   id?: number;
   name: string;
   synopsis: string;
-  genres_id: Array<string>;
+  genres: Array<string>;
   release?: string;
   language: string;
   subtitled: boolean;
   director?: string;
   IMDB?: string;
   rating?: number;
+  image?: string;
   type: string;
 }
 
@@ -27,13 +31,14 @@ export type patch = {
   data: {
     name?: string;
     synopsis?: string;
-    genres_id?: Array<string>;
+    genres?: Array<string>;
     release?: string;
     language?: string;
     subtitled: boolean;
     director?: string;
     IMDB?: string;
     rating?: number;
+    image?: string;
     type: any;
   };
 };
