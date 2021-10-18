@@ -4,7 +4,7 @@ A envoy video store
 
 ### Features (until now) :triumph:
 
-![Badge](https://img.shields.io/badge/NODEJS-%23339933?style=for-the-badge&logo=nodejs)
+![Badge](https://img.shields.io/badge/NODEJS-^14.17.4-%23339933?style=for-the-badge&logo=nodejs)
 
 ![Badge](https://img.shields.io/badge/EXPRESS-4.17.1-%23000000?style=for-the-badge&logo=express)
 
