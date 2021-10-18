@@ -25,7 +25,8 @@ A envoy video store
 
   **dia 16/10**: terceiro dia, sem grandes atualizações, sai de manhã e tarde, mas pelo menos estou vacinado agora, apenas mudando algumas coisas no saga, e vendo se minha lógica esta indo bem
 
-  **dia 17/10**: ok, penultimo dia, os cards ficaram legais eu acho, e ta bem independente, excluindo e listando os filmes, funcionando bem, usando OOCSS no meu SASS, bom pelo menos até onde conheço (nivel iniciante), preciso ler amanhã sobre pra ajustar, antes de enviar o projeto. Fluxo de commits vai se prejudicado por esse sabado, era pra eu ter revisado o redux de sexta e a home, e subido, mas, seguimos.
+  **dia 17/10**: ok, penultimo dia, os cards ficaram legais eu acho, e ta bem independente, excluindo e listando os filmes, funcionando bem, usando OOCSS no meu SASS, bom pelo menos até onde conheço (nivel iniciante), preciso ler amanhã sobre pra ajustar, antes de enviar o projeto. Fluxo de commits vai se prejudicado por esse sabado, era pra eu ter revisado o redux de sexta e a home, e subido, mas, seguimos. 
+  -- ultimo commit aqui antes de ir dormir, lembrei que não tava nem retornando um filme só pelo id, nem retornando o success true/false, ajeitando a api e testando então, agora sim, amanhã, formularios pra criar e editar os filmes, e entregar o projeto, LESGOO
 
 
 👤 **Felipe Augustos**
