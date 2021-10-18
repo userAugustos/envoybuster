@@ -21,8 +21,11 @@ A envoy video store
   **dia 14/10**: Primeiro dia do desafio, inciei a API com typescript e express, o CRUD é simples e funcional, como era o plano, e acredito que bem feito também, possui as validações que queria inicialmente, e o PATCH, um protocolo HTTP que até então não conhecia, mas pesquisando, percebi que atendia bem ao caso de atualizações de filmes, onde vou permitir atualizar apenas um, ou mais ou todos os dados de um filme.
   Termino o dia testando a API usando insominia, e inciando o projeto front-end com Reactjs e typescript.
 
+  **dia 15/10**: Segundo dia, pequenas alterações na api, pensando na opção de adicionar imagem, o link dela; Iniciando o as requests com redux-saga, deixando elas prontas, comecei com Axios, depois percebendo que não tem tanta necessidade, o fetch resolve essas requests muito bem, criei um api.ts na pasta services, acho que ficou bem legal e esta simples e servindo bem, espero que o código esteja ficando legivel, algumas coisas a melhorar no Reudx.
 
+  **dia 16/10**: terceiro dia, sem grandes atualizações, sai de manhã e tarde, mas pelo menos estou vacinado agora, apenas mudando algumas coisas no saga, e vendo se minha lógica esta indo bem
 
+  **dia 17/10**: ok, penultimo dia, os cards ficaram legais eu acho, e ta bem independente, excluindo e listando os filmes, funcionando bem, usando OOCSS no meu SASS, bom pelo menos até onde conheço (nivel iniciante), preciso ler amanhã sobre pra ajustar, antes de enviar o projeto.
 
 
 👤 **Felipe Augustos**

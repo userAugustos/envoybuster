@@ -1,0 +1,56 @@
+.Container{
+  background: #e9eaff;
+  border-radius: 4px;
+
+  max-width: 400px;
+  min-width: 310px;
+  // max-height: 700px;
+  position: relative;
+
+  box-shadow: 2px 2px 1rem #86828c8a;
+
+  header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  svg{
+    font-size: 1.5rem;
+  }
+
+  section, div{
+    max-width: 100%;
+    position: relative;
+  }
+
+  .poster{
+    padding: 0 1.5rem 0 1.5rem;
+    img{
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 2px 2px 2rem #f4cee4;
+    }
+    section.card-absolute{
+      width: 100%;
+      position: absolute;
+      bottom: 7%;
+      left: 2%;
+      justify-content: space-around;
+    }
+  }
+
+  main{
+    align-items: start;
+    padding: 1.5rem;
+  }
+
+  footer{
+    width: 100%;
+    button{
+      border-radius: 0;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.container{
+  text-align: center;
+
+  margin-top: 2%;
+
+  h2{
+    font-weight: 600;
+  }
+  h4{
+    span{
+      color: #E50914;
+    }
+  }
+}
+
+main{
+  ul{
+    padding: 0;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  li{
+    padding: 0 1.5rem;
+    margin: 1rem 0;
+  }
+}
