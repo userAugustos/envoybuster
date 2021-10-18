@@ -1,7 +1,6 @@
-.container{
-  text-align: center;
+.home{
 
-  margin-top: 2%;
+  flex-direction: column;
 
   h2{
     font-weight: 600;
@@ -13,7 +12,7 @@
   }
 }
 
-main{
+.home main{
   ul{
     padding: 0;
     width: 100%;

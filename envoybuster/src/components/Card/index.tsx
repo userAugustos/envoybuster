@@ -17,7 +17,7 @@ export const Card = ({ movie, deleteMovie }: any) => {
   }
 
   return (
-    <div className='Container'>
+    <div className='card'>
       <header>
         <h2 className=''> {movie.name} </h2>
         {movie.rating && (
@@ -28,9 +28,9 @@ export const Card = ({ movie, deleteMovie }: any) => {
         )}
       </header>
       <section className='poster'>
-        <img src={poster} alt='' />
+        <img src={movie.image ? movie.image : poster } alt='' />
         <section className="card-absolute center-flex">
-          { movie.genres_id?.map((genre: any) => ( <button className="button bt-white link-button"> {genre} </button> )) }
+          { movie.genres?.map((genre: any) => ( <button className="button bt-white link-button" key={genre}> {genre} </button> )) }
         </section>
       </section>
       <main className='column-flex pd-1'>

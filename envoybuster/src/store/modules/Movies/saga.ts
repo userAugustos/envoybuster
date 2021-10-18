@@ -1,14 +1,20 @@
 import { call, all, put, takeLatest } from "redux-saga/effects";
 import * as api from "../../../services/api";
 import { actions, deleteProps, Movie, patch } from "../../../utils/moviesTypes";
-import { setMovies } from "./action";
+import { setMovie, setMovies, setSuccess } from "./action";
 
 
-function* reqMovies(): any {
+export interface ReqProps {
+  url: string,
+  type: Array<any>
+}
+
+function* reqMovies({ url }: ReqProps): any {
   try {
-    const data = yield call(api.get);
+    const data = yield call(api.get, url);
 
-    yield put(setMovies(data));
+    Array.isArray(data) ? yield put(setMovies(data)) : yield put(setMovie(data));
+    
   } catch (error) {
     console.log(error);
   }
@@ -30,6 +36,8 @@ function* removeMovie({ id }: deleteProps): any {
     const response = yield call(api.remove, id);
 
     console.log(response);
+
+    yield put(setSuccess(response.success))
   } catch (error) {
     console.log(error);
   }
