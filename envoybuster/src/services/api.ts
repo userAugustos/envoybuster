@@ -2,8 +2,8 @@ import { Movie, patch } from "../utils/moviesTypes";
 
 const baseUrl = "http://localhost:3030";
 
-export const get = async () => {
-  return await fetch(`${baseUrl}/movies`).then(response => response.json());
+export const get = async (getUrl: string) => {
+  return await fetch(`${baseUrl}/${getUrl}`).then(response => response.json());
 };
 
 export const post = async (data: Movie) => {

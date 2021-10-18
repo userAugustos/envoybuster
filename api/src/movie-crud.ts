@@ -34,7 +34,7 @@ export const getMovie = async (req: express.Request, res: express.Response) => {
   const index = await movies.findIndex((movie: any) => movie.id == id);
 
   index >= 0
-    ? res.status(200).send({ movies: movies[index] })
+    ? res.status(200).send(movies[index])
     : res.status(400).send({ success: false, error: "Não achamos o filme!" });
 };
 

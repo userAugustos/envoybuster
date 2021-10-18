@@ -4,6 +4,8 @@ export const actions = {
   ADD_MOVIE: "ADD_MOVIE",
   REMOVE_MOVIE: "REMOVE_MOVIE",
   UPDATE_MOVIE: "UPDATE_MOVIE",
+  SET_MOVIE: "SET_MOVIE",
+  SET_SUCCESS: "SET_SUCCESS"
 };
 
 export interface Movie {
@@ -39,4 +41,9 @@ export type patch = {
 export type deleteProps = {
   id: number,
   type: string;
+}
+
+export type successParams = {
+  success: boolean,
+  message: string
 }

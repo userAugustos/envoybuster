@@ -13,6 +13,7 @@ export interface Movies {
   id: number;
   name: string,
   synopsis: string,
+  image?: string;
   genres: Array<string>,
   release?: string, 
   language: string,
