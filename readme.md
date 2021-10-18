@@ -4,13 +4,13 @@ A envoy video store
 
 ### Features (until now) :triumph:
 
-![Badge](https://img.shields.io/badge/NODEJS-^14.17.4-%23339933?style=for-the-badge&logo=nodejs)
+![Badge](https://img.shields.io/badge/NODEJS-%23339933-^14.17.4?style=for-the-badge&logo=nodejs)
 
-![Badge](https://img.shields.io/badge/EXPRESS-4.17.1-%23000000?style=for-the-badge&logo=express)
+![Badge](https://img.shields.io/badge/EXPRESS-%23000000-4.17.1?style=for-the-badge&logo=express)
 
-![Badge](https://img.shields.io/badge/YUP-0.32.11-%23000000?style=for-the-badge)
+![Badge](https://img.shields.io/badge/YUP-%23000000-0.32.11?style=for-the-badge)
 
-![Badge](https://img.shields.io/badge/TYPESCRIPT-4.4.4-%233178C6?style=for-the-badge&logo=typescript)
+![Badge](https://img.shields.io/badge/TYPESCRIPT-%233178C6-4.4.4?style=for-the-badge&logo=typescript)
 
 
 #### Relatório de desenvolvimento
