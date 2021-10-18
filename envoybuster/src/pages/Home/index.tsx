@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { reqMovies, removeMovie } from "../../store/modules/Movies/action";
 import "../../styles/_home.scss";
 import logo from '../../assets/logo.png';
-import { Movie } from "../../utils/moviesTypes";
 import { Card } from "../../components/Card";
 
 export default function Home() {
