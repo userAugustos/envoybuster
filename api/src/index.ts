@@ -27,6 +27,8 @@ router.get("/", (req: express.Request, res: express.Response) => {
   res.send("Aoba, tudo certo aqui");
 })
 
+router.get("/movie/:id", movieCRUD.getMovie);
+
 router.get("/movies", movieCRUD.getMovies);
 
 router.post("/movie", validate(movieSchema), movieCRUD.postMovies);
