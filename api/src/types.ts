@@ -13,7 +13,7 @@ export interface Movies {
   id: number;
   name: string,
   synopsis: string,
-  genres_id: Array<string>,
+  genres: Array<string>,
   release?: string, 
   language: string,
   subtitled: boolean,
@@ -22,10 +22,10 @@ export interface Movies {
   rating?: number
 }
 
-export const patchProps = {
+export const patchBody = {
   name: '',
   synopsis: '',
-  genres_id: [],
+  genres: [],
   release: '', 
   language: '',
   subtitled: '',
