@@ -13,10 +13,10 @@ export default function Movies(state = [], action: any){
         movie: action.movie
       }
     
-    case actions.SET_SUCCESS:
+    case actions.SET_RESPONSE:
       return{
         ...state,
-        success: action.success
+        response: action.response
       }
     default:
       return state;

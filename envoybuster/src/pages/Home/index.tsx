@@ -12,7 +12,7 @@ export default function Home() {
 
   React.useEffect(() => {
     dispatch(reqMovies('movies'));
-    console.log(data);
+    // console.log(data);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

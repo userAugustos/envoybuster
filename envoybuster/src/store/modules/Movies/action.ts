@@ -14,10 +14,10 @@ export const setMovie = (movie: Movie) => {
   };
 };
 
-export const setSuccess = (success: boolean) => {
+export const setResponse = (response: any) => {
   return{
-    type: actions.SET_SUCCESS,
-    success
+    type: actions.SET_RESPONSE,
+    response
   }
 }
 
