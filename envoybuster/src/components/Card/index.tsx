@@ -40,9 +40,7 @@ export const Card = ({ movie, deleteMovie }: any) => {
         </section>
         <section className="center-flex">
           <FaLanguage className='mr-15' />
-          <span>{movie.language}</span>
-
-          <span className="">, { movie.subtitled ? " Legendado" : " Sem Legenda"} </span>
+          {<span>{ movie.language && `${movie.language},` } { movie.subtitled ? "Legendado" : "Sem Legenda"}</span>}
         </section>
       </main>
       <footer className="center-flex">

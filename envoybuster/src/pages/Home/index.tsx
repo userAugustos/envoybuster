@@ -25,7 +25,6 @@ export default function Home() {
     <div className="container home">
       <header>
         <section className="center-flex">
-          {data.success && <p>{data.message}</p> }
           <img src={logo} alt="logo" className="logo mr-15" />
           <h1>Envoybutser</h1>
         </section>
@@ -35,7 +34,7 @@ export default function Home() {
       {Array.isArray(data) ? <p>Loading...</p> : (
         <main>
           <ul className="center-flex">
-            {data.movies.map((item: any) => (
+            {data.movies?.map((item: any) => (
               <li key={item.id}>
                 <Card movie={item} deleteMovie={() => handleDeleteMovie(item.id)}></Card>
               </li>

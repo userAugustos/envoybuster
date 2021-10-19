@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+
 import Dashboard from '../../components/Dashboard';
 import Form from '../../components/Form';
+
 import { reqMovies } from '../../store/modules/Movies/action';
 
+import { TiArrowBack } from "react-icons/ti";
 import "../../styles/_details.scss";
 
 export default function Details() {
@@ -14,7 +17,11 @@ export default function Details() {
 
   const [open, setOpen] = React.useState<boolean>();
 
-  const movie = useSelector((state: any) => state.Movies.movie);
+  const data = useSelector((state: any) => state.Movies);
+
+  const handleGoBack = async () => {
+    history.push("/");
+  }
 
   React.useEffect(() => {
     dispatch(reqMovies(`movie/${id}`));
@@ -23,15 +30,15 @@ export default function Details() {
 
   return(
     <main className="container column-flex details">
-      { movie ? <Dashboard movie={movie}/> : <p>loading</p> }
+      { data?.movie ? <Dashboard movie={data.movie}/> : <p>loading</p> }
 
       <Form show={open} onClose={() => setOpen(false)} />
 
-      <button className="button" onClick={() => setOpen(true)}>
+      <button className="button movie bt-red" onClick={() => setOpen(true)}>
         Editar/Cadastrar Filme
       </button>
-      <button className="button go-back" onClick={() => history.push("/")}>
-        Volta pra home
+      <button className="button go-back center-flex" onClick={handleGoBack}>
+        <TiArrowBack /> Home
       </button>
     </main>
   )  
