@@ -52,7 +52,7 @@ Após ler o desafio, fiz um fluxo do projeto no Notion, vendo, decidi criar uma 
  
  **dia 18/10**: ok, um problema tenebroso com o *"html data-lt-installed="true""*, resolvendo. Continuando sobre o ultimo dia, agora as 21:30, tempo está acabando, mas bom, ADICIONANDO E EDITANDO OS FILMES, parece que foi, nossa, o problema do html resolveu comer umas 4 horas, e eu nem sei o que era, só removi o node_modules e dei um yarn de novo. queria implementar um teste pro form, mas pelo jeito sem tempo :/, bom, agora é estilizar o form, e testar na mão.
  Ok, testado o formulário, claro a estilização dele foi feita às pressas, mas, ficou interessante.
- No fim gostei das estilizações, embora não tenha tido o tempo de revezar a estrutura do meu CSS, apesar dos pesares, empecilhos, foi legal fazer esse teste, algumas pesquisas muito interessantes.
+ No fim gostei das estilizações, embora não tenha tido o tempo de revisar a estrutura do meu CSS, apesar dos pesares, empecilhos, foi legal fazer esse teste, algumas pesquisas muito interessantes.
 
 
 
