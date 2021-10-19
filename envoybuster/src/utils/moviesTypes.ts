@@ -5,7 +5,7 @@ export const actions = {
   REMOVE_MOVIE: "REMOVE_MOVIE",
   UPDATE_MOVIE: "UPDATE_MOVIE",
   SET_MOVIE: "SET_MOVIE",
-  SET_SUCCESS: "SET_SUCCESS"
+  SET_RESPONSE: "SET_RESPONSE"
 };
 
 export interface DB {

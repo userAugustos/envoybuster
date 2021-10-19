@@ -15,9 +15,9 @@ export default function Form({ show, onClose }: FormProps) {
   const data = useSelector((state: any) => state.Movies);
 
   React.useEffect(() => {
-    if (data.success) {
-      window.alert(data.success.message);
-      window.location.reload();
+    if (data.response) {
+      window.alert(data.response?.message);
+      data.response?.success === true && window.location.reload(); 
     }
     console.log(data);
   }, [data]);
@@ -42,20 +42,19 @@ export default function Form({ show, onClose }: FormProps) {
   }
 
   const handleAddMovie = async (event: React.FormEvent) => {
-    if (!Array.isArray(form.values.genres)) {
+    if (!Array.isArray(form.values.genres) && !form.values.genres === null) {
       form.values.genres = await form.values.genres.split(",");
     }
 
-    console.log(form.values);
+    const data = await form.values;
 
-    dispatch(addMovie(form.values));
+    Object.keys(data).forEach(item => data[item] == null && delete data[item]);
+
+    dispatch(addMovie(data));
   };
 
   const handleUpdateMovie = async () => {
-    if (
-      !Array.isArray(form.values.genres) &&
-      !form.values.genres === undefined
-    ) {
+    if ( !Array.isArray(form.values.genres) && !form.values.genres === null) {
       form.values.genres = await form.values.genres.split(",");
     }
 
@@ -85,7 +84,7 @@ export default function Form({ show, onClose }: FormProps) {
             value={form.values.name}
             onChange={form.handleChange}
           />
-          <label htmlFor='name'>Nome do Filme</label>
+          <label htmlFor='name'> <span className="required">*</span> Nome do Filme</label>
         </section>
         <section className='input'>
           <textarea
@@ -93,7 +92,7 @@ export default function Form({ show, onClose }: FormProps) {
             id='synopsis'
             cols={30}
             rows={10}
-            placeholder='Sinopse'
+            placeholder='Sinopse - Obrigatória'
             value={form.values.synopsis}
             onChange={form.handleChange}
           ></textarea>
@@ -106,7 +105,7 @@ export default function Form({ show, onClose }: FormProps) {
             onChange={form.handleChange}
           />
           <label htmlFor='genres'>
-            Genero(s) <span className="mini-info">Mais de um, por favor, separe com virgula</span>
+          <span className="required">*</span> Genero(s) <span className="mini-info"> Mais de um, por favor, separe com virgula</span>
           </label>
         </section>
         <section className='input'>
@@ -126,7 +125,7 @@ export default function Form({ show, onClose }: FormProps) {
             value={form.values.language}
             onChange={form.handleChange}
           />
-          <label htmlFor='language'>Lingua</label>
+          <label htmlFor='language'> <span className="required">*</span> Lingua</label>
         </section>
         <section className='input'>
           <input
@@ -137,7 +136,7 @@ export default function Form({ show, onClose }: FormProps) {
             onChange={form.handleChange}
             value={form.values.subtitled}
           />
-          <label htmlFor='subtitled'>Posui Legenda?</label>
+          <label htmlFor='subtitled'> <span className="required">*</span> Posui Legenda?</label>
         </section>
         <section className='input'>
           <input
