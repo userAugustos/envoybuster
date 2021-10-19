@@ -27,7 +27,7 @@ export interface Movie {
 }
 
 export type patch = {
-  id: number;
+  id: string;
   data: {
     name?: string;
     synopsis?: string;
@@ -51,4 +51,22 @@ export type deleteProps = {
 export type successParams = {
   success: boolean,
   message: string
+}
+
+export interface FormProps {
+  show?: boolean;
+  onClose?: () => any;
+};
+
+export const patchBody = {
+  name: '',
+  synopsis: '',
+  genres: [],
+  release: '', 
+  language: '',
+  subtitled: '',
+  director: '',
+  IMDB: '',
+  rating: '',
+  image: ''
 }

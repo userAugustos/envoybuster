@@ -41,7 +41,7 @@ const Dashboard = ({ movie }: DB) => {
           <span>{movie.language}</span>
         </section>
         <section className='center-flex pd-1'>
-          <span> Lançamento: {movie.release} </span>
+          <span> Lançamento: {movie.release?.split("-")[0]} </span>
         </section>
       </header>
 

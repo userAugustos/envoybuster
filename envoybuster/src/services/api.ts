@@ -15,6 +15,8 @@ export const post = async (data: Movie) => {
     body: JSON.stringify(data),
   };
 
+  console.log(Request.body);
+
   return await fetch(`${baseUrl}/movie`, Request).then(response =>
     response.json()
   );

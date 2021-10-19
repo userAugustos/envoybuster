@@ -20,10 +20,13 @@ function* reqMovies({ url }: ReqProps): any {
   }
 }
 
-function* addMovie(movie: Movie): any {
+function* addMovie({ movie }: any): any {
   try {
 
+    console.log(movie);
     const response = yield call(api.post, movie);
+
+    yield put(setSuccess(response));
 
     console.log(response);
   } catch (error) {
@@ -37,7 +40,7 @@ function* removeMovie({ id }: deleteProps): any {
 
     console.log(response);
 
-    yield put(setSuccess(response.success))
+    yield put(setSuccess(response))
   } catch (error) {
     console.log(error);
   }
@@ -47,7 +50,8 @@ function* updateMovie({ id, data }: patch, type = []): any {
   try {
     const response = yield call(api.update, { id, data});
 
-    console.log(response);
+    
+    yield put(setSuccess(response))
   } catch (error) {
     console.log(error);
   }
