@@ -29,9 +29,9 @@ A envoy video store
 
 ### Como Rodar o projeto
 
-Ao clonar o projeto, entre na */api*, e rode o comando **yarn**, para baixar as features, após a instalação apenas rode, **yarn start**
-(se quiser brincar com a Api, rode **yarn dev**).
-Depois, volte *cd ..*, e entre na */envoybuster*, assim como na api, rode o comando **yarn**, e apóis a instalação apenas rode **yarn start**
+Ao clonar o projeto, entre na */api*, e rode o comando "**yarn**", para baixar as features, após a instalação apenas rode, "**yarn start**"
+(se quiser brincar com a Api, rode "**yarn dev**").
+Depois, volte *cd ..*, e entre na */envoybuster*, assim como na api, rode o comando "**yarn**, e apóis a instalação apenas rode **yarn start**"
 
 *aah e não vai esquecer hein, o node é 14.17.4, provavelmente qualquer versão a cima funcionará também*
 
