@@ -4,6 +4,7 @@ export default function Movies(state = [], action: any){
   switch (action.type) {
     case actions.SET_MOVIES:
       return {
+        ...state,
         movies: action.movies
       }
     case actions.SET_MOVIE:
