@@ -6,9 +6,9 @@
   flex-wrap: wrap;
   height: 100%;
   max-width: 1200px;
-  margin: auto;
-
+  
   @media (min-width: 1000px) {
+    margin: auto;
     box-shadow: 2px 2px 8px $main-black;
   }
 

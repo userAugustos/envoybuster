@@ -28,9 +28,10 @@ export const reqMovies = (url: string) => {
   };
 };
 
-export const addMovie = () => {
+export const addMovie = (movie: any) => {
   return {
     type: actions.ADD_MOVIE,
+    movie
   };
 };
 
@@ -41,9 +42,10 @@ export const removeMovie = (id: number) => {
   };
 };
 
-export const updateMovie = (data: patch) => {
+export const updateMovie = ({id, data}: patch) => {
   return {
     type: actions.UPDATE_MOVIE,
+    id,
     data
   };
 };
