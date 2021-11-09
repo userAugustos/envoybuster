@@ -1,3 +1,5 @@
+import { InputHTMLAttributes } from "react";
+
 export const actions = {
   SET_MOVIES: "SET_MOVIES",
   REQ_MOVIES: "REQ_MOVIES",
@@ -8,11 +10,34 @@ export const actions = {
   SET_RESPONSE: "SET_RESPONSE"
 };
 
-export interface DB {
-  movie: Movie
+export interface States {
+  Movies: {
+    Movies?: Array<Movie>,
+    movie?: Movie
+  },
+}
+
+export interface ModalInterface {
+  show?: boolean;
+  onClose?: () => any;
+  children: JSX.Element | JSX.Element[]
+}
+
+export interface InputInterface extends InputHTMLAttributes<HTMLInputElement>{
+  value: string,
+  onChange: (e: any) => void,
+  type: string,
+  required?: boolean,
+  label: string,
+  info?: string,
+  name: string
+}
+export interface CardInterface {
+  movie: Movie,
+  deleteMovie?: () => any;
 }
 export interface Movie {
-  id?: number;
+  id: number;
   name: string;
   synopsis: string;
   genres: Array<string>;
@@ -54,8 +79,8 @@ export type successParams = {
 }
 
 export interface FormProps {
-  show?: boolean;
-  onClose?: () => any;
+  update?: boolean,
+  movie?: Movie
 };
 
 export const patchBody = {

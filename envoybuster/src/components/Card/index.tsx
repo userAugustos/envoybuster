@@ -8,12 +8,20 @@ import { GrFormNextLink } from 'react-icons/gr';
 import poster from "../../assets/poster.jpg";
 import "../../styles/_card.scss";
 import { useHistory } from "react-router";
+import { CardInterface } from "../../utils/moviesTypes";
+import { useDispatch } from "react-redux";
+import { removeMovie } from "../../store/modules/Movies/action";
 
-export const Card = ({ movie, deleteMovie }: any) => {
+export const Card = ({ movie } : CardInterface) => {
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleMovieDetails = () => {
     history.push(`/details/${movie.id}`);
+  }
+
+  const handleDeleteMovie = () => {
+    dispatch(removeMovie(movie.id));
   }
 
   return (
@@ -27,12 +35,12 @@ export const Card = ({ movie, deleteMovie }: any) => {
           </section>
         )}
       </header>
-      <section className='poster'>
+      <div className='poster'>
         <img src={movie.image ? movie.image : poster } alt='' />
         <section className="card-absolute center-flex">
           { movie.genres?.map((genre: any) => ( <button className="button bt-white link-button" key={genre}> {genre} </button> )) }
         </section>
-      </section>
+      </div>
       <main className='column-flex pd-1'>
         <section className='center-flex'>
           <GiDirectorChair className='mr-15 font-svg' />
@@ -48,7 +56,7 @@ export const Card = ({ movie, deleteMovie }: any) => {
          <GrFormNextLink className="mr-15"/>
           Ver Mais
         </button>
-        <button className="button bt-red max-bt center-flex" onClick={deleteMovie}>
+        <button className="button bt-red max-bt center-flex" onClick={handleDeleteMovie}>
           <AiFillDelete className="mr-15"/>
           Excluir
         </button>

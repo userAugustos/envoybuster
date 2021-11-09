@@ -9,6 +9,8 @@ import { reqMovies } from '../../store/modules/Movies/action';
 
 import { TiArrowBack } from "react-icons/ti";
 import "../../styles/_details.scss";
+import { States } from '../../utils/moviesTypes';
+import Modal from '../../components/Modal';
 
 export default function Details() {
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ export default function Details() {
 
   const [open, setOpen] = React.useState<boolean>();
 
-  const data = useSelector((state: any) => state.Movies);
+  const data = useSelector((state: States) => state.Movies);
 
   const handleGoBack = async () => {
     history.push("/");
@@ -25,6 +27,7 @@ export default function Details() {
 
   React.useEffect(() => {
     dispatch(reqMovies(`movie/${id}`));
+    // console.log(data);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -32,10 +35,12 @@ export default function Details() {
     <main className="container column-flex details">
       { data?.movie ? <Dashboard movie={data.movie}/> : <p>loading</p> }
 
-      <Form show={open} onClose={() => setOpen(false)} />
+      <Modal show={open} onClose={() => setOpen(false)}>
+        <Form update movie={data?.movie}/> 
+      </Modal>
 
       <button className="button movie bt-red" onClick={() => setOpen(true)}>
-        Editar/Cadastrar Filme
+        Editar Filme
       </button>
       <button className="button go-back center-flex" onClick={handleGoBack}>
         <TiArrowBack /> Home

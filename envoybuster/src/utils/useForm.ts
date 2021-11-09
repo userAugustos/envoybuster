@@ -12,7 +12,7 @@ export function useForm({ initialValues }: any) {
       [fieldName]: value
     })
 
-    if(fieldName == 'subtitled'){
+    if(fieldName === 'subtitled'){
       setValues({
         ...values,
         subtitled: !values.subtitled

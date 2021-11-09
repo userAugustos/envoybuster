@@ -1,5 +1,4 @@
 import * as React from "react";
-import { IoMdClose } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addMovie, updateMovie } from "../../store/modules/Movies/action";
@@ -7,8 +6,9 @@ import { addMovie, updateMovie } from "../../store/modules/Movies/action";
 import "../../styles/_form.scss";
 import { FormProps } from "../../utils/moviesTypes";
 import { useForm } from "../../utils/useForm";
+import { Input } from "../Input";
 
-export default function Form({ show, onClose }: FormProps) {
+export default function Form({ update, movie }: FormProps): JSX.Element {
   const dispatch = useDispatch();
   const { id } = useParams<{ id: string }>();
 
@@ -17,13 +17,12 @@ export default function Form({ show, onClose }: FormProps) {
   React.useEffect(() => {
     if (data.response) {
       window.alert(data.response?.message);
-      data.response?.success === true && window.location.reload(); 
+      data.response?.success === true && window.location.reload();
     }
-    console.log(data);
   }, [data]);
 
   const form = useForm({
-    initialValues: {
+    initialValues: movie ? movie : {
       name: null,
       synopsis: null,
       genres: null,
@@ -36,10 +35,6 @@ export default function Form({ show, onClose }: FormProps) {
       image: null,
     },
   });
-
-  if (!show) {
-    return null;
-  }
 
   const handleAddMovie = async (event: React.FormEvent) => {
     if (!Array.isArray(form.values.genres) && !form.values.genres === null) {
@@ -54,7 +49,7 @@ export default function Form({ show, onClose }: FormProps) {
   };
 
   const handleUpdateMovie = async () => {
-    if ( !Array.isArray(form.values.genres) && !form.values.genres === null) {
+    if (!Array.isArray(form.values.genres) && !form.values.genres === null) {
       form.values.genres = await form.values.genres.split(",");
     }
 
@@ -66,126 +61,124 @@ export default function Form({ show, onClose }: FormProps) {
   };
 
   return (
-    <div className={`modal center-flex ${show && "show"}`} onClick={onClose}>
-      <button onClick={onClose} className='close-button button'>
-        <IoMdClose className='red-svg' />
-      </button>
-
-      <form
-        action=''
-        onSubmit={e => e.preventDefault()}
-        onClick={e => e.stopPropagation()}
-        className="movie-form pd-1"
-      >
-        <section className='input'>
-          <input
-            type='text'
-            name='name'
-            value={form.values.name}
-            onChange={form.handleChange}
-          />
-          <label htmlFor='name'> <span className="required">*</span> Nome do Filme</label>
-        </section>
-        <section className='input'>
-          <textarea
-            name='synopsis'
-            id='synopsis'
-            cols={30}
-            rows={10}
-            placeholder='Sinopse - Obrigatória'
-            value={form.values.synopsis}
-            onChange={form.handleChange}
-          ></textarea>
-        </section>
-        <section className='input'>
-          <input
-            type='text'
-            name='genres'
-            value={form.values.genres}
-            onChange={form.handleChange}
-          />
-          <label htmlFor='genres'>
-          <span className="required">*</span> Genero(s) <span className="mini-info"> Mais de um, por favor, separe com virgula</span>
-          </label>
-        </section>
-        <section className='input'>
-          <input
-            type='date'
-            name='release'
-            value={form.values.realese}
-            onChange={form.handleChange}
-            placeholder="Data de Lançamento"
-          />
-          <label htmlFor='release'>Data de lançamento</label>
-        </section>
-        <section className='input'>
-          <input
-            type='text'
-            name='language'
-            value={form.values.language}
-            onChange={form.handleChange}
-          />
-          <label htmlFor='language'> <span className="required">*</span> Lingua</label>
-        </section>
-        <section className='input'>
-          <input
-            type='checkbox'
-            id='checkbox'
-            name='subtitled'
-            checked={form.values.subtitled}
-            onChange={form.handleChange}
-            value={form.values.subtitled}
-          />
-          <label htmlFor='subtitled'> <span className="required">*</span> Posui Legenda?</label>
-        </section>
-        <section className='input'>
-          <input
-            type='text'
-            name='director'
-            value={form.values.director}
-            onChange={form.handleChange}
-          />
-          <label htmlFor='director'>Nome do Diretor</label>
-        </section>
-        <section className='input'>
-          <input
-            type='text'
-            name='IMDB'
-            value={form.values.IMDB}
-            onChange={form.handleChange}
-          />
-          <label htmlFor='IMDB'>Link do filme no IMDB</label>
-        </section>
-        <section className='input'>
-          <input
-            type='number'
-            name='rating'
-            value={form.values.rating}
-            onChange={form.handleChange}
-          />
-          <label htmlFor='rating'>Avaliação</label>
-        </section>
-        <section className='input'>
-          <input
-            type='text'
-            name='image'
-            value={form.values.image}
-            onChange={form.handleChange}
-          />
-          <label htmlFor='image'>
-            Imagem <span className="mini-info">preferida em poster</span>
-          </label>
-        </section>
-
-        <section>
-          <button type='button' className="button bt-red" onClick={handleAddMovie}>
-            Cadastrar
-          </button>
-          <button type='button' className="button bt-white mb-15" onClick={handleUpdateMovie}>
+    <form
+      action=''
+      onSubmit={e => e.preventDefault()}
+      onClick={e => e.stopPropagation()}
+      className='movie-form pd-1'
+    >
+      {/* Movie Name */}
+      <Input
+        value={form.values.name}
+        type='text'
+        name='name'
+        onChange={form.handleChange}
+        required={true}
+        label='Nome do Filme'
+      />
+      {/* Movie Synopsis <textarea> */}
+      <section className='input'>
+        <textarea
+          name='synopsis'
+          id='synopsis'
+          cols={30}
+          rows={10}
+          placeholder='Sinopse - Obrigatória'
+          value={form.values.synopsis}
+          onChange={form.handleChange}
+        ></textarea>
+      </section>
+      {/* Genries */}
+      <Input
+        value={form.values.genres}
+        type='text'
+        name='genres'
+        onChange={form.handleChange}
+        required={true}
+        label='Genero(s)'
+        info='Separe com virgula'
+      />
+      {/* Estreia */}
+      <Input
+        value={form.values.release}
+        type='date'
+        name='release'
+        onChange={form.handleChange}
+        required={true}
+        label='Data de Lançamento'
+      />
+      {/* Lingua */}
+      <Input
+        value={form.values.language}
+        type='text'
+        name='language'
+        onChange={form.handleChange}
+        required={true}
+        label='Lingua'
+      />
+      {/* Diretor */}
+      <Input
+        value={form.values.director}
+        type='text'
+        name='director'
+        onChange={form.handleChange}
+        required={true}
+        label='Nome do Diretor'
+      />
+      {/* Legendado? */}
+      <Input
+        value={form.values.subtitled}
+        type='checkbox'
+        name='subtitled'
+        required={true}
+        onChange={form.handleChange}
+        checked={form.values.subtitled}
+        label='Legendado?'
+      />
+      {/* IMDB */}
+      <Input
+        value={form.values.IMDB}
+        type='text'
+        name='IMDB'
+        onChange={form.handleChange}
+        label='Link no IMDB'
+      />
+      {/* Avaliação */}
+      <Input
+        value={form.values.rating}
+        type='number'
+        name='rating'
+        onChange={form.handleChange}
+        label='Avaliação'
+      />
+      {/* Imagem */}
+      <Input
+        value={form.values.image}
+        type='text'
+        name='image'
+        onChange={form.handleChange}
+        label='Imagem'
+        info='preferida em poster'
+      />
+      <section>
+        {update ? (
+          <button
+            type='button'
+            className='button bt-white mb-15'
+            onClick={handleUpdateMovie}
+          >
             Atualizar
           </button>
-        </section>
-      </form>
-    </div>
+        ) : (
+          <button
+            type='button'
+            className='button bt-red'
+            onClick={handleAddMovie}
+          >
+            Cadastrar
+          </button>
+        )}
+      </section>
+    </form>
   );
 }

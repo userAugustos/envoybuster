@@ -34,6 +34,7 @@ export const remove = async (id: number) => {
 };
 
 export const update = async ({ id, data }: patch) => {
+  console.log(data);
   const Request = {
     headers: {
       "Content-Type": "application/json",

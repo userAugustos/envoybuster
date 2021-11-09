@@ -23,8 +23,6 @@ function* reqMovies({ url }: ReqProps): any {
 function* addMovie({ movie }: any): any {
   try {
     const response = yield call(api.post, movie);
-
-    console.log(response);
     
     yield put(setResponse(response));
 
