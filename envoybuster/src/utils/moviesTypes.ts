@@ -37,7 +37,7 @@ export interface CardInterface {
   deleteMovie?: () => any;
 }
 export interface Movie {
-  id: number;
+  id?: number;
   name: string;
   synopsis: string;
   genres: Array<string>;
@@ -48,7 +48,7 @@ export interface Movie {
   IMDB?: string;
   rating?: number;
   image?: string;
-  type: string;
+  type?: string;
 }
 
 export type patch = {
@@ -80,7 +80,8 @@ export type successParams = {
 
 export interface FormProps {
   update?: boolean,
-  movie?: Movie
+  movie?: Movie,
+  path?: string;
 };
 
 export const patchBody = {

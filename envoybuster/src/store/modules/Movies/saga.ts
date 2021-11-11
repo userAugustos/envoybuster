@@ -47,7 +47,6 @@ function* updateMovie({ id, data }: patch, type = []): any {
   try {
     const response = yield call(api.update, { id, data});
 
-    
     yield put(setResponse(response))
   } catch (error) {
     console.log(error);

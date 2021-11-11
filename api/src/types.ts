@@ -32,5 +32,6 @@ export const patchBody = {
   subtitled: '',
   director: '',
   IMDB: '',
-  rating: ''
+  rating: '',
+  image: ''
 }

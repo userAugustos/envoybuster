@@ -21,34 +21,36 @@ export const Card = ({ movie } : CardInterface) => {
   }
 
   const handleDeleteMovie = () => {
-    dispatch(removeMovie(movie.id));
+    movie.id && dispatch(removeMovie(movie.id));
   }
 
   return (
-    <div className='card'>
+    <div className='card' data-testid="movie-card">
       <header>
-        <h2 className=''> {movie.name} </h2>
+        <h2 data-testid='movie-card-info'> {movie.name} </h2>
         {movie.rating && (
           <section className='center-flex'>
             <AiFillStar className='mr-15 gold-svg' />
-            <p>{movie.rating}</p>
+            <p className="rating" data-testid='movie-card-info' >{movie.rating}</p>
           </section>
         )}
       </header>
       <div className='poster'>
-        <img src={movie.image ? movie.image : poster } alt='' />
-        <section className="card-absolute center-flex">
-          { movie.genres?.map((genre: any) => ( <button className="button bt-white link-button" key={genre}> {genre} </button> )) }
+        <img src={movie.image ? movie.image : poster } alt='' data-testid="movie-card-info" />
+        <section className="card-absolute center-flex genres">
+          { movie.genres?.map((genre: any) => ( <button className="button bt-white link-button" key={genre} data-testid="movie-card-info"> {genre} </button> )) }
         </section>
       </div>
       <main className='column-flex pd-1'>
         <section className='center-flex'>
           <GiDirectorChair className='mr-15 font-svg' />
-          <p>{movie.director}</p>
+          <p className="director" data-testid="movie-card-info">{movie.director}</p>
         </section>
         <section className="center-flex">
           <FaLanguage className='mr-15' />
-          {<span>{ movie.language && `${movie.language},` } { movie.subtitled ? "Legendado" : "Sem Legenda"}</span>}
+          {<span className="language" data-testid="movie-card-info" >{ movie.language && `${movie.language},` }
+            <span data-testid="movie-card-info">{ movie.subtitled ? "Legendado" : "Sem Legenda"}</span>
+          </span>}
         </section>
       </main>
       <footer className="center-flex">

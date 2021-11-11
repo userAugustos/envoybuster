@@ -11,7 +11,7 @@ import { States } from "../../utils/moviesTypes";
 const Dashboard = ({ movie }: States["Movies"]) => {
   return (
     <div className='container dashboard'>
-      <header className='dashboard-header column-flex'>
+      <header className='dashboard-header column-flex' data-testid="dashboard-header">
         <article className='center-flex pd-1'>
           <section className='column-flex title'>
             <h2>{movie?.name}</h2>
@@ -41,7 +41,7 @@ const Dashboard = ({ movie }: States["Movies"]) => {
         </section>
       </header>
 
-      <main className='center-flex'>
+      <main className='center-flex' data-testid="dashboard-main">
         <div className='column-flex'>
           <section className='synopsis'>
             <p> {movie?.synopsis} </p>

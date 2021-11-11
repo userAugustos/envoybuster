@@ -14,50 +14,47 @@ export default function Form({ update, movie }: FormProps): JSX.Element {
 
   const data = useSelector((state: any) => state.Movies);
 
-  React.useEffect(() => {
-    if (data.response) {
-      window.alert(data.response?.message);
-      data.response?.success === true && window.location.reload();
-    }
-  }, [data]);
-
   const form = useForm({
     initialValues: movie ? movie : {
-      name: null,
-      synopsis: null,
-      genres: null,
-      release: null,
-      language: null,
+      name: undefined,
+      synopsis: undefined,
+      genres: undefined,
+      release: undefined,
+      language: undefined,
       subtitled: false,
-      director: null,
-      IMDB: null,
-      rating: null,
-      image: null,
+      director: undefined,
+      IMDB: undefined,
+      rating: undefined,
+      image: undefined,
     },
   });
 
   const handleAddMovie = async (event: React.FormEvent) => {
-    if (!Array.isArray(form.values.genres) && !form.values.genres === null) {
+    
+    // form.values.genres = await form.values.genres.split(",");
+    if (!Array.isArray(form.values.genres) || !form.values.genres === undefined) {
+      console.log(form.values.genres);
       form.values.genres = await form.values.genres.split(",");
     }
 
     const data = await form.values;
 
-    Object.keys(data).forEach(item => data[item] == null && delete data[item]);
+    Object.keys(data).forEach(item => data[item] === undefined && delete data[item]);
+
 
     dispatch(addMovie(data));
   };
 
   const handleUpdateMovie = async () => {
-    if (!Array.isArray(form.values.genres) && !form.values.genres === null) {
+    if (!Array.isArray(form.values.genres) && !form.values.genres === undefined) {
       form.values.genres = await form.values.genres.split(",");
     }
 
     const data = await form.values;
 
-    Object.keys(data).forEach(item => data[item] == null && delete data[item]);
+    Object.keys(data).forEach(item => data[item] === undefined && delete data[item]);
 
-    dispatch(updateMovie({ id, data }));
+    dispatch(updateMovie({id, data }));
   };
 
   return (
@@ -66,6 +63,7 @@ export default function Form({ update, movie }: FormProps): JSX.Element {
       onSubmit={e => e.preventDefault()}
       onClick={e => e.stopPropagation()}
       className='movie-form pd-1'
+      data-testid="form"
     >
       {/* Movie Name */}
       <Input
@@ -163,7 +161,7 @@ export default function Form({ update, movie }: FormProps): JSX.Element {
       <section>
         {update ? (
           <button
-            type='button'
+            type='submit'
             className='button bt-white mb-15'
             onClick={handleUpdateMovie}
           >
@@ -171,7 +169,7 @@ export default function Form({ update, movie }: FormProps): JSX.Element {
           </button>
         ) : (
           <button
-            type='button'
+            type='submit'
             className='button bt-red'
             onClick={handleAddMovie}
           >

@@ -15,7 +15,6 @@ export const Input = ({
   const [date, setDate] = React.useState<any>();
   // TODO: Mudança no input de data para exibir quando for atualizar
   const handleDateChange = (e: any) => {
-    console.log(e.target.value);
     setDate(e.target.value);
     onChange(e);
   };
@@ -35,11 +34,11 @@ export const Input = ({
               onChange={handleDateChange}
             />
           </span>
-          <input type='text' name='text-date-input' value={date} placeholder={label}/>
+          <input type='text' name='text-date-input' value={date} placeholder={label} data-testid="movie-input"/>
         </>
       ) : (
         <>
-          <input type={type} name={name} value={value} onChange={onChange} checked={checked}/>
+          <input type={type} name={name} value={value} onChange={onChange} checked={checked} data-testid="movie-input"/>
           <label htmlFor={name}>
             {label}
             {required && <span className='required'>*</span>}
