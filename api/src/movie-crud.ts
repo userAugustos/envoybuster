@@ -81,7 +81,7 @@ export const patchMovies = async (
         if (data in patchBody) {
           currentData.movies[index][data] = req.body[data];
         } else {
-          res.status(400).send("Esse parametro não existe!");
+          res.status(400).send("Esse parametro não existe!" + data);
         }
       }
 

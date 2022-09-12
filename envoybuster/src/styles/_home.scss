@@ -1,7 +1,6 @@
-.container{
-  text-align: center;
+.home{
 
-  margin-top: 2%;
+  flex-direction: column;
 
   h2{
     font-weight: 600;
@@ -13,7 +12,7 @@
   }
 }
 
-main{
+.home main{
   ul{
     padding: 0;
     width: 100%;
@@ -22,5 +21,10 @@ main{
   li{
     padding: 0 1.5rem;
     margin: 1rem 0;
+  }
+  .register-movie{
+    width: 100%;
+    margin: 1rem auto auto auto;
+    border-radius: 0;
   }
 }

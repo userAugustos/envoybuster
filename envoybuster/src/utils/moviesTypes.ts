@@ -1,3 +1,5 @@
+import { InputHTMLAttributes } from "react";
+
 export const actions = {
   SET_MOVIES: "SET_MOVIES",
   REQ_MOVIES: "REQ_MOVIES",
@@ -5,35 +7,63 @@ export const actions = {
   REMOVE_MOVIE: "REMOVE_MOVIE",
   UPDATE_MOVIE: "UPDATE_MOVIE",
   SET_MOVIE: "SET_MOVIE",
-  SET_SUCCESS: "SET_SUCCESS"
+  SET_RESPONSE: "SET_RESPONSE"
 };
 
+export interface States {
+  Movies: {
+    Movies?: Array<Movie>,
+    movie?: Movie
+  },
+}
+
+export interface ModalInterface {
+  show?: boolean;
+  onClose?: () => any;
+  children: JSX.Element | JSX.Element[]
+}
+
+export interface InputInterface extends InputHTMLAttributes<HTMLInputElement>{
+  value: string,
+  onChange: (e: any) => void,
+  type: string,
+  required?: boolean,
+  label: string,
+  info?: string,
+  name: string
+}
+export interface CardInterface {
+  movie: Movie,
+  deleteMovie?: () => any;
+}
 export interface Movie {
   id?: number;
   name: string;
   synopsis: string;
-  genres_id: Array<string>;
+  genres: Array<string>;
   release?: string;
   language: string;
   subtitled: boolean;
   director?: string;
   IMDB?: string;
   rating?: number;
-  type: string;
+  image?: string;
+  type?: string;
 }
 
 export type patch = {
-  id: number;
+  id: string;
   data: {
     name?: string;
     synopsis?: string;
-    genres_id?: Array<string>;
+    genres?: Array<string>;
     release?: string;
     language?: string;
     subtitled: boolean;
     director?: string;
     IMDB?: string;
     rating?: number;
+    image?: string;
     type: any;
   };
 };
@@ -46,4 +76,23 @@ export type deleteProps = {
 export type successParams = {
   success: boolean,
   message: string
+}
+
+export interface FormProps {
+  update?: boolean,
+  movie?: Movie,
+  path?: string;
+};
+
+export const patchBody = {
+  name: '',
+  synopsis: '',
+  genres: [],
+  release: '', 
+  language: '',
+  subtitled: '',
+  director: '',
+  IMDB: '',
+  rating: '',
+  image: ''
 }

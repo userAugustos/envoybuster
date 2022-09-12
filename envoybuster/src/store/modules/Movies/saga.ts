@@ -1,7 +1,7 @@
 import { call, all, put, takeLatest } from "redux-saga/effects";
 import * as api from "../../../services/api";
-import { actions, deleteProps, Movie, patch } from "../../../utils/moviesTypes";
-import { setMovie, setMovies, setSuccess } from "./action";
+import { actions, deleteProps, patch } from "../../../utils/moviesTypes";
+import { setMovie, setMovies, setResponse } from "./action";
 
 
 export interface ReqProps {
@@ -20,12 +20,12 @@ function* reqMovies({ url }: ReqProps): any {
   }
 }
 
-function* addMovie(movie: Movie): any {
+function* addMovie({ movie }: any): any {
   try {
-
     const response = yield call(api.post, movie);
+    
+    yield put(setResponse(response));
 
-    console.log(response);
   } catch (error) {
     console.log(error);
   }
@@ -35,9 +35,9 @@ function* removeMovie({ id }: deleteProps): any {
   try {
     const response = yield call(api.remove, id);
 
-    console.log(response);
+    // console.log(response);
 
-    yield put(setSuccess(response.success))
+    yield put(setResponse(response))
   } catch (error) {
     console.log(error);
   }
@@ -47,7 +47,7 @@ function* updateMovie({ id, data }: patch, type = []): any {
   try {
     const response = yield call(api.update, { id, data});
 
-    console.log(response);
+    yield put(setResponse(response))
   } catch (error) {
     console.log(error);
   }

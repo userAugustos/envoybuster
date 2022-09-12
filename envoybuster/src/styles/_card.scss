@@ -1,12 +1,15 @@
-.Container{
-  background: #e9eaff;
+@import "./variables.scss";
+
+.card{
+  background: $light-white;
   border-radius: 4px;
 
   max-width: 400px;
   min-width: 310px;
+  max-height: 740px;
   position: relative;
 
-  box-shadow: 2px 2px 1rem #86828c8a;
+  box-shadow: 2px 2px 1rem $dark-shadow;
 
   header{
     display: flex;
@@ -14,6 +17,12 @@
     align-items: center;
     padding: 1.5rem 1.5rem 0 1.5rem;
     letter-spacing: 1px;
+    max-width: 100%;
+
+    h2{
+      white-space: nowrap;
+      font-size: 110%;
+    }
   }
 
   svg{
@@ -28,22 +37,24 @@
   .poster{
     padding: 0 1.5rem 0 1.5rem;
     img{
+      max-height: 500px;
       width: 100%;
       border-radius: 4px;
-      box-shadow: 2px 2px 2rem #f4cee4;
+      box-shadow: 2px 2px 2rem $pink-shadow;
     }
     section.card-absolute{
       width: 100%;
       position: absolute;
       bottom: 7%;
-      left: 2%;
+      left: 0;
       justify-content: space-around;
+      flex-wrap: wrap;
     }
   }
 
   main{
     align-items: start;
-    padding: 1.5rem;
+    // padding: 1.5rem;
   }
 
   footer{

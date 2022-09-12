@@ -15,14 +15,36 @@ export const post = async (data: Movie) => {
     body: JSON.stringify(data),
   };
 
-  return await fetch(`${baseUrl}/movie`, Request).then(response =>
-    response.json()
-  );
+  return await fetch(`${baseUrl}/movie`, Request).then(response => {
+    if (response.ok) {
+      return{
+        success: true,
+        message: "Filme Adicionado com sucesso! :)"
+      }
+    } else {
+      return{
+        success: false,
+        message: "Falha ao cadastrar o filme, confira os campos :)"
+      }
+    }
+  });
 };
 
 export const remove = async (id: number) => {
-  return await fetch(`${baseUrl}/movie/${id}`, { method: "DELETE" }).then(response =>
-    response.json()
+  return await fetch(`${baseUrl}/movie/${id}`, { method: "DELETE" }).then(
+    response => {
+      if (response.ok) {
+        return{
+          success: true,
+          message: "Filme Deletado com Sucesso! :)"
+        }
+      } else {
+        return{
+          success: false,
+          message: "Vish, se recusa a ir pro lixo!"
+        }
+      }
+    }
   );
 };
 

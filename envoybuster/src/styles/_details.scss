@@ -1,0 +1,24 @@
+main.details{
+  width: 100%;
+  min-height: 100vh;
+
+  position: relative;
+
+  button.go-back{
+
+    svg{
+      font-size: 1.5rem;
+      margin-right: 5px;
+    }
+    @media (min-width: 1000px) {
+      position: absolute;
+      top: 2%;
+      left: 2%;
+    }
+  }
+  button.movie{
+    // max-width: 600px;
+    // margin: 0 auto;
+    border-radius: 0px;
+  }
+}

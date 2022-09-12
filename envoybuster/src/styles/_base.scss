@@ -28,6 +28,13 @@ li,a{
   list-style: none;
 }
 
+.container{
+  text-align: center;
+  width: 100%;
+  display: flex;
+}
+
+
 .center-flex{
   display: flex;
   justify-content: center;
@@ -41,6 +48,11 @@ li,a{
 
 .logo{
   width: 4em;
+}
+
+.max-size{
+  width: 100%;
+  min-height: 100vh;
 }
 
 .m-0{
@@ -97,22 +109,28 @@ li,a{
 }
 
 .bt-red{
-  background: #e35151;
-  color: #f8f7fa;
+  background: $main-red;
+  color: $text-white;
 }
 
 .bt-white{
-  background: #f8f7fa;
-  color: #3e3d40;
+  background: $text-white;
+  color: $text-dark;
 
   &:hover, &:focus{
-    background: #3e3d40;
-    color: #f8f7fa;
-    box-shadow: 1px 1px 6px #f8f7fa;
+    background: $text-dark;
+    color: $text-white;
+    box-shadow: 1px 1px 6px $text-white;
   }
 }
 
 .max-bt{
   width: 100%;
   height: 100%;
+}
+
+span.required{
+  font-size: 1em;
+  margin-top: -5%;
+  color: $main-red;
 }
